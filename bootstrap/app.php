@@ -11,7 +11,7 @@
 |
 */
 
-// サービスコンテナ
+// サービスコンテナのインスタンスを生成
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
@@ -27,6 +27,7 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
+// singleton 生成されるインスタンスを一つに限定する
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
     App\Http\Kernel::class

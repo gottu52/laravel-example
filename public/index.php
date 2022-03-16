@@ -31,6 +31,7 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 |
 */
 
+// オートロード
 require __DIR__.'/../vendor/autoload.php';
 
 /*
@@ -44,10 +45,14 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
+// インストール前の環境を確認
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+// ミドルウェアのリストも定義
+//Karnel [司令塔となる中心の機能]
 $kernel = $app->make(Kernel::class);
 
+// Requestを受け取り、Responseを返す(単純)
 $response = $kernel->handle(
     $request = Request::capture()
 )->send();
