@@ -1,8 +1,10 @@
 @props(['errors'])
 
+{{-- $error->any() 何かエラーが発生した場合に表示する --}}
 @if ($errors->any())
     <div {{ $attributes }}>
         <div class="font-medium text-red-600">
+            {{-- 多言語ファイルにある文字情報を引っ張ってくる --}}
             {{ __('Whoops! Something went wrong.') }}
         </div>
 
